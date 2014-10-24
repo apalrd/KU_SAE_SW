@@ -24,8 +24,8 @@ extern float GF_ManFlowRatio;
 //GF_CalcMAPPred is the predicted Calc MAP next cycle
 //This is used for puddle calculations
 extern float GF_CalcMAPPred;
-//GF_MAPWOT is the MAP at WOT (just stuffs MAP with TIP or BARO)
-extern float GF_MAPWOT;
+//MAPPred is stuffed with the correct value to use
+extern float GF_MAPPRed;
 //GF_MAPMaxBoost is the MAP at MaxBoost
 extern float GF_MAPMAxBoost;
 

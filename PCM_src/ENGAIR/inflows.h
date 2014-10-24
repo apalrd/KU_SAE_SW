@@ -50,6 +50,8 @@ extern volatile float GF_RstcOutPrsMaxBoost;
 extern volatile float GF_CompPratio;
 //Compressore pressure ratio at MaxBoost
 extern volatile float GF_CompPratioMaxBoost;
+//TIP pressure
+extern volatile float GF_ThrInlPrs;
 
 //Calibrations for in flows
 //Sonic flow table for the throttle

@@ -105,15 +105,17 @@ extern volatile float GF_ChargeRat;
 extern volatile float GF_ChargeRatWOT;
 //Charge Ratio at MaxBoost
 extern volatile float GF_ChargeRatMaxBoost;
+//Effective Displacement
+extern volatile float GF_EngDispEff;
 
 
 //Variables part of outflows - Calibrations
 //Specific gas constant - R_Air * Molar Mass of Air
 extern float GF_SpecificGasConst;
 //Engine displacement total
-extern float GF_EngVol;
+extern float GF_EngDisp;
 //Engine displacement per cylinder
-extern float GF_EngVolPerCyl;
+extern float GF_EngDispPerCyl;
 //Engine number of cylinders
 extern U8 GF_EngNumCyl;
 //VE surface
