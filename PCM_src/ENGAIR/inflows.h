@@ -36,6 +36,8 @@ extern volatile float GF_RstcSonicFlow;
 extern volatile float GF_RstcOutPrs;
 //Restrictor flow at WOT
 extern volatile float GF_RstcFlowWOT;
+//Restrictor air density
+extern volatile float GF_RstcAirDensity;
 //Restrictor flow at MaxBoost
 extern volatile float GF_RstcFlowMaxBoost;
 //Restrictor mach number at WOT
@@ -52,6 +54,8 @@ extern volatile float GF_CompPratio;
 extern volatile float GF_CompPratioMaxBoost;
 //TIP pressure
 extern volatile float GF_ThrInlPrs;
+//TIT Temp
+extern volatile float GF_ThrInlTmp;
 
 //Calibrations for in flows
 //Sonic flow table for the throttle
@@ -60,6 +64,11 @@ extern float GF_ThrSonicFlowTbl[];
 extern float GF_ThrBkp[];
 //Restrictor area
 extern float GF_RstcArea;
+//Inflow config register
+extern U32 GF_InflowConfig;
+//Bit defines for inflow config:
+//Bit0 use ACT instead of TIT for Thr temp
+#defnie GF_INFLOW_USE_ACT_FOR_THR BIT0
 
 //Function calls
 //Calculate the in flows in the 10MS task
