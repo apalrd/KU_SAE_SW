@@ -42,6 +42,14 @@ extern volatile float GF_PortMassFlowWOT;
 extern volatile float GF_ChargeMaxBoost;
 //MaxBoost Port Mass Flow
 extern volatile float GF_PortMassFlowMaxBoost;
+//HotBoost port mass flow
+//Calculated by recalc of MaxBoost using HotBoost
+//thermal factors (higher temperature pre-CAC)
+extern volatile float GF_PortMassFlowHotBoost;
+//Ambient charge (VE=1 P=BARO T=AmbT)
+extern volatile float GF_ChargeAmbient;
+//Flow version
+extern volatile float GF_PortMassFlowAmbient;
 //VE at WOT
 extern volatile float GF_PortCalcWOTVE;
 //VE at MaxBoost
@@ -61,12 +69,40 @@ extern volatile float GF_CACEffCalc;
 //Actual charge air cooler efficiency
 extern volatile float GF_CACEff;
 //Calculated max boost temperature
-extern volatile float GF_ACTMaxBoostCalc;
+extern volatile float GF_TempMaxBoostCalc;
+//Calculated max boost temp without CAC
+extern volatile float GF_TempMaxBoostCalcRaw;
+//Gas Factors (1/(R*T)) calculated in 320ms task
+extern volatile float GF_GasFac;
+//Gas Factor with WOT temp
+extern volatile float GF_GasFacWOT;
+//Gas Factor with MaxBoost temp
+extern volatile float GF_GasFacMaxBoost;
+//Gas factor with HotBoost temp
+extern volatile float GF_GasFacHotBoost;
+//Gas factor for ambient/baro (used for charge ratio)
+extern volatile float GF_GasFacAmbient;
+//Gasflow temperature
+extern volatile float GF_Temp;
+//Temperature for WOT
+extern volatile float GF_TempWOT
+//Temperature for MaxBoost
+extern volatile float GF_TempMaxBoost;
+//Temperature for HotBoost
+extern volatile float GF_TempHotBoost;
+//CyclesPerSec is RPM / 120 for gas flows
+extern volatile float GF_CyclesPerSec;
 
 
 //Variables part of outflows - Calibrations
 //Specific gas constant - R_Air * Molar Mass of Air
 extern float GF_SpecificGasConst;
+//Engine displacement total
+extern float GF_EngVol;
+//Engine displacement per cylinder
+extern float GF_EngVolPerCyl;
+//Engine number of cylinders
+extern U8 GF_EngNumCyl;
 //VE surface
 extern float GF_VESurf[];
 //RPM breakpoints for Gasflows high res
@@ -104,6 +140,8 @@ extern U32 GF_OutflowConfig;
 //BIT6: Use Boost Temp Model for MaxBoost flow
 //Overrides bit5 if selected
 #define GF_OUTFLOW_USE_BOOST_TEMP_MODEL BIT6
+//BIT7: Use Hot Boost feature
+#define GF_OUTFLOW_USE_HOT_BOOST BIT7
 
 //DIAL Outflows select register
 extern U32 DIAL_GF_OutflowsSelReg;
@@ -118,6 +156,10 @@ extern U32 DIAL_GF_OutflowsSelReg;
 #define DIAL_GF_PortMassFlowPred_Sel BIT7
 #define DIAL_GF_PortMassFlowWOT_Sel BIT8
 #define DIAL_GF_PortMassFlowMaxBoost_Sel BIT9
+
+
+//General definition: C to K
+#define DEG_C_TO_K 273.3
 
 
 

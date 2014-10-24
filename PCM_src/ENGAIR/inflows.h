@@ -34,6 +34,22 @@ extern volatile float GF_RstcSonicFlow;
 //Restrictor out pressure
 //Used for compressor ratio calculation in out flows
 extern volatile float GF_RstcOutPrs;
+//Restrictor flow at WOT
+extern volatile float GF_RstcFlowWOT;
+//Restrictor flow at MaxBoost
+extern volatile float GF_RstcFlowMaxBoost;
+//Restrictor mach number at WOT
+extern volatile float GF_RstcMachNumWOT;
+//Restrictor mach number at MaxBoost
+extern volatile float GF_RstcMacnNumMaxBoost;
+//Restrictor out pressure at WOT
+extern volatile float GF_RstcOutPrsWOT;
+//Restrictor out pressure at MaxBoost
+extern volatile float GF_RstcOutPrsMaxBoost;
+//Compressor pressure ratio
+extern volatile float GF_CompPratio;
+//Compressore pressure ratio at MaxBoost
+extern volatile float GF_CompPratioMaxBoost;
 
 //Calibrations for in flows
 //Sonic flow table for the throttle
@@ -49,5 +65,6 @@ void GF_Inflows_CalcFlows10MS();
 //Adapt the throttle flows in the 80ms task
 void GF_Inflows_CalcThrAdapt80MS();
 //Calculate the density corrections in the 320ms task
+//Restrictor pressure drop is calculated here as well
 void GF_Inflows_CalcDensity320MS();
 
