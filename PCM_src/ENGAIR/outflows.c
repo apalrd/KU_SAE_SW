@@ -10,6 +10,29 @@
 #include "manifold.h"
 
 
+//Helper functions
+//Calculate the VE Base at a given load at current engine speed
+float GF_Outflow_CalcVEBase(float load)
+{
+    float Temp1;
+    //Interpolate the VE surface and apply dial VE's
+    Temp1 = ???? Interpolation functions
+    
+    if(DIAL_GF_OutflowSelReg & DIAL_GF_VEBase_Sel)
+    {
+        Temp1 = DIAL_GF_VEBase;
+    }
+    
+    //Return the value
+    return Temp1;
+}
+
+//Calculate the VE Corr at a given charge ratio at the current engine speed
+float GF_Outflow_CalcVECorr(float charge_ratio)
+{
+    //Do the same as above to VE Corr
+}
+
 //Functions for calculating out flows in the TDC task
 //Calculates GF_Charge and GF_ChargePred and associated lookups
 //for the fuel calclations done at TDC and BDC
@@ -17,6 +40,11 @@ void GF_Outflow_CalcFlowsTDC()
 {
     //This task is responsible for calculating GF_Charge and
     //GF_PortMassFlow in the TDC task for fuel and spark
+    
+    //Determine VE for charge
+    GF_VEBase = GF_Outflow_CalcVEBase(GF_Load);
+    
+    //Determine GF Charge before VE Corrs for charge ratio
     
 }
 //Functions for calculating out flows in the 10ms task

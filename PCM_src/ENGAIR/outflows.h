@@ -91,7 +91,20 @@ extern volatile float GF_TempMaxBoost;
 //Temperature for HotBoost
 extern volatile float GF_TempHotBoost;
 //CyclesPerSec is RPM / 120 for gas flows
+//Calculated in 10ms task from RPM
 extern volatile float GF_CyclesPerSec;
+//Gasflow Load
+extern volatile float GF_Load;
+//Load at WOT
+extern volatile float GF_LoadWOT;
+//Load at MaxBoost
+extern volatile float GF_LoadMaxBoost;
+//Charge Ratio
+extern volatile float GF_ChargeRat;
+//Charge Ratio at WOT
+extern volatile float GF_ChargeRatWOT;
+//Charge Ratio at MaxBoost
+extern volatile float GF_ChargeRatMaxBoost;
 
 
 //Variables part of outflows - Calibrations
@@ -156,6 +169,11 @@ extern U32 DIAL_GF_OutflowsSelReg;
 #define DIAL_GF_PortMassFlowPred_Sel BIT7
 #define DIAL_GF_PortMassFlowWOT_Sel BIT8
 #define DIAL_GF_PortMassFlowMaxBoost_Sel BIT9
+
+//Dial values
+extern float DIAL_GF_VEBase;
+extern float DIAL_GF_Charge;
+
 
 
 //General definition: C to K
